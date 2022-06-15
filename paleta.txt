@@ -1,0 +1,7 @@
+azul escuro: #0d1b2a
+azul: #1b263b
+azul claro: #415a77
+azul mais claro: #778da9
+cru: #e0e1dd
+
+cor de fundo do wallpaper: #242E3D

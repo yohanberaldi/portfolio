@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,500&display=swap');
+
+
+/*Zera as definições padrões do HTML*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: initial;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Poppins', 'Times New Roman', Times, serif;
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none; /*Tira o sublinhado dos links*/
+}
+
+img{
+    object-fit: fill;
+}
+
+/*Edita as fontes de todos os parágrafos*/
+p {
+    font-size: 1.3rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+}
+
+/*Definições da barra de navegação superior*/
+.topnav {
+    background-color: #e0e1dd;
+    overflow: initial;
+    height: auto; 
+    width: 100%; /* Deixa a barra ocupando 100% da tela */
+    position: fixed; /* Deixa a barra fixa ao rolar */
+    z-index: 1; /* Mantém a barra aparecendo em todas as páginas */
+    top: 1;
+    left: 1;
+    padding-top: 0px;
+    margin: 0;
+}
+  
+  /* Edita os links dentro da barra */
+  .topnav a {
+    float: right;
+    color: #0d1b2a;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+  /* Muda a cor dos links ao passar por cima */
+  .topnav a:hover {
+    background-color: lightcoral;
+    color: black;
+}
+
+/*Inicialmente gostaria de que ao clicar no link da barra o card se abrisse, porém, não consegui achar uma solução em CSS para isso.*/
+
+/* Sessão de apresentação */
+
+/*Configurações da área da animação da página inicial*/
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Edita e dá cor ao texto da animação*/
+.section-title{
+    font-size: 4rem;
+    font-weight: 500;
+    color: #e0e1dd;
+    margin-bottom: 10px;
+    margin-top: 5px ;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+/*Define o background da página de animação*/
+#presentation{
+    background-image: url(./background3.png);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 0;
+}
+/*Insere os efeitos às linhas do h1 e depois usa o keyframe para dar a cor ao texto*/
+#presentation h1{
+    display: block;
+    width: fit-content;
+    font-size: 5rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1s;
+}
+
+#presentation h1:nth-child(1){
+    animation-delay: 1s;
+}
+#presentation h1:nth-child(2){
+    animation-delay: 2s;
+}
+#presentation h1:nth-child(3){
+    animation: text_reveal_name .5s ease forwards;
+    animation-delay: 3s;
+}
+
+/*Insere os efeitos do botão da animação*/
+#presentation .cta{
+    display: inline-block;
+    padding: 10px 30px;
+    color: lightcoral;
+    background-color: transparent;
+    border: 2px solid lightcoral;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 20px;
+    transition: .5s ease;
+    transition-property: background-color, color;
+}
+ /*Efeito ao passar o mouse no botão*/
+#presentation .cta:hover{
+    color: #e0e1dd;
+    font-weight: 500;
+    background-color: lightcoral;
+}
+
+/*Configura o efeito de transição da animação, a barra percorre o texto e depois some*/
+#presentation h1 span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    animation: text_reveal_box 1s ease;
+    animation-delay: .5s;
+    background-color: lightcoral;
+}
+
+#presentation h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+#presentation h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+#presentation h1:nth-child(3) span{
+    animation-delay: 2.5s;
+}
+
+#presentation::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Sessão do Porfolio */
+
+/*Define a cor de fundo e a formatação do título do ínicio da página de portfolio*/
+#portfolio{
+    background-color: #242E3D;
+}
+
+#portfolio .portfolio{
+    justify-content:center;
+    align-items:center;
+    display:flex;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+#portfolio .portfolio-header h1{
+    margin-bottom: 300px;
+}
+
+/* Seção dos Cards*/
+
+/*Os cards possuem a área de texto referenciada como card e a capa referenciada como cover*/
+/*Aqui é definido o texto e as configurações do card onde está o texto*/
+.card{
+    position:relative;
+    width:200px;
+    height:300px;
+    border-radius:0px 10px 10px 0px;
+    background:#f4f4f4;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    perspective: 100em;
+    margin:25px;
+    box-shadow:30px 40px 40px rgba(0,0,0,0.2);
+ }
+ /*Aqui é definido o tamanho da capa e o comportamento de transformação*/
+ .cover{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background: #ddd;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1s;
+    border-radius:0px 10px 10px 0px;
+    font-size:30px;
+    font-weight: bold;
+ }
+ /*Aqui ao passar o mouse por cima da capa ela rotaciona 120º usando as definições de orientação, intervalo e estilo definidas acima*/
+ .card:hover .cover{
+    transform:rotateY(-120deg);
+ }
+ /*Define o comportamento do conteúdo da capa aberta e fechada*/
+ .coverFront {
+    position:absolute;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+    display:contents;
+ }
+ /*Define a cor e posição do texto da capa frontal e arredonda os cantos*/
+ .coverFront{
+    background: #f4f4f4;
+    text-align: center;
+    padding: 100px;
+    margin-top: 50%;
+    border-radius: 0px 10px 10px 0px ;
+    color:#333;
+ }
+
+/* Keyframes */
+
+@keyframes text_reveal{
+    100%{
+        color: white;
+    }
+}
+
+@keyframes text_reveal_name{
+    100%{
+        color: lightcoral;
+        font-weight: 550;
+    }
+}
+
+@keyframes text_reveal_box{
+    50%{
+        width: 100%;
+        left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
